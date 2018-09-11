@@ -10,14 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectView = new SelectView(selectionCarousel);
   selectView.bindEvents();
 
-  // const instrumentInfo = new InstrumentInfo();
-  // instrumentInfo.bindEvents();
-
   const instrumentFamilies = new InstrumentFamilies();
   instrumentFamilies.bindEvents();  
 
-
-
+  const instrumentInfo = new InstrumentInfo();
+  instrumentInfo.bindEvents();
 
 
 });
