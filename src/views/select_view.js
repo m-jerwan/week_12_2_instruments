@@ -13,8 +13,6 @@ SelectView.prototype.bindEvents = function () {
         const selectedFamilyIndex = event.target.value;
         PubSub.publish('SelectView','SelectedView:familySelected', selectedFamilyIndex);
     })
-
-
 }
 
 SelectView.prototype.makeOptions = function (arrayOfInstrumentFamilies) {
@@ -25,6 +23,8 @@ SelectView.prototype.makeOptions = function (arrayOfInstrumentFamilies) {
         this.selection.appendChild(option);
     });
 }
+
+
 
 
 
