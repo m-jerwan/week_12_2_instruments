@@ -8,10 +8,16 @@ SelectView.prototype.bindEvents = function () {
     PubSub.subscribe('InstrumentFamilies:sending-names', (event) => {
     this.makeOptions(event.detail);
     })
+
+    this.selection.addEventListener('change', (event)=>{
+        const selectedFamilyIndex = event.target.value;
+        PubSub.publish('SelectedView:familySelected', selectedFamilyIndex);
+    })
+
+
 }
 
 SelectView.prototype.makeOptions = function (arrayOfInstrumentFamilies) {
-    
     arrayOfInstrumentFamilies.forEach((familyName, index) => {
         const option = document.createElement('option');
         option.textContent = familyName;
