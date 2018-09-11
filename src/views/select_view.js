@@ -5,13 +5,13 @@ const SelectView = function (selection) {
 };
 
 SelectView.prototype.bindEvents = function () {
-    PubSub.subscribe('InstrumentFamilies:sending-names', (event) => {
+    PubSub.subscribe('SelectView','InstrumentFamilies:sending-names', (event) => {
     this.makeOptions(event.detail);
     })
 
     this.selection.addEventListener('change', (event)=>{
         const selectedFamilyIndex = event.target.value;
-        PubSub.publish('SelectedView:familySelected', selectedFamilyIndex);
+        PubSub.publish('SelectView','SelectedView:familySelected', selectedFamilyIndex);
     })
 
 

@@ -5,7 +5,7 @@ const InstrumentInfo = function(){
 };
 
 InstrumentInfo.prototype.bindEvents = function(){
-    PubSub.subscribe('InstrumentFamilies:sending-choosen-whole-family', (event)=>{
+    PubSub.subscribe('InstrumentInfo','InstrumentFamilies:sending-choosen-whole-family', (event)=>{
         console.log('ready to display:', event.detail);
     })
 }

@@ -1,14 +1,14 @@
 const PubSub = {
-	publish: function(channel, payload){
+	publish: function(who, channel, payload){
 		const event = new CustomEvent(channel, {
 			detail: payload
 		});
-		console.log(`publishing. channel: ${channel}, payload: ${payload}`)
+		console.log(`${who} publishing. channel: ${channel}, payload: ${payload}`)
 		document.dispatchEvent(event);
 	},
 
-	subscribe: function(channel, callback){
-		console.log(`subscribing. channel: ${channel}`);
+	subscribe: function(who, channel, callback){
+		console.log(`${who} subscribing. channel: ${channel}`);
 		document.addEventListener(channel, callback);
 		
 	}

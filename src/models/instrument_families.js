@@ -33,11 +33,11 @@ const InstrumentFamilies = function() {
 
 InstrumentFamilies.prototype.bindEvents = function(){
   const allFamilyNames = this.giveFamilyNames();
-  PubSub.publish('InstrumentFamilies:sending-names', allFamilyNames);
+  PubSub.publish('InstrumentFamilies', 'InstrumentFamilies:sending-names', allFamilyNames);
 
-  PubSub.subscribe('SelectedView:familySelected', (event)=>{
+  PubSub.subscribe('InstrumentFamilies', 'SelectedView:familySelected', (event)=>{
     const wholeFamily = this.instrumentFamilies[event.detail];
-    PubSub.publish('InstrumentFamilies:sending-choosen-whole-family', wholeFamily);
+    PubSub.publish('InstrumentFamilies', 'InstrumentFamilies:sending-choosen-whole-family', wholeFamily);
   })
 
 }
